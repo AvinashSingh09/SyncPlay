@@ -1,0 +1,72 @@
+[
+    {
+        "id": "1",
+        "title": "Blinding Lights",
+        "artist": "The Weeknd",
+        "file": "The Weeknd - Blinding Lights (Official Audio) - (320 Kbps).mp3",
+        "duration": 200
+    },
+    {
+        "id": "2",
+        "title": "Starboy",
+        "artist": "The Weeknd ft. Daft Punk",
+        "file": "The Weeknd - Starboy (Lyrics) ft. Daft Punk - (320 Kbps).mp3",
+        "duration": 230
+    },
+    {
+        "id": "3",
+        "title": "Levitating",
+        "artist": "Dua Lipa",
+        "file": "Dua Lipa - Levitating (Lyrics) - (320 Kbps).mp3",
+        "duration": 203
+    },
+    {
+        "id": "4",
+        "title": "Shape of You",
+        "artist": "Ed Sheeran",
+        "file": "Ed Sheeran - Shape of You (Lyrics) - (320 Kbps).mp3",
+        "duration": 234
+    },
+    {
+        "id": "5",
+        "title": "Bad Habits",
+        "artist": "Ed Sheeran",
+        "file": "Ed Sheeran - Bad Habits - (320 Kbps).mp3",
+        "duration": 231
+    },
+    {
+        "id": "6",
+        "title": "Heat Waves",
+        "artist": "Glass Animals",
+        "file": "Glass Animals - Heat Waves - (320 Kbps).mp3",
+        "duration": 239
+    },
+    {
+        "id": "7",
+        "title": "Someone You Loved",
+        "artist": "Lewis Capaldi",
+        "file": "Lewis Capaldi - Someone You Loved (Lyrics) - (320 Kbps).mp3",
+        "duration": 182
+    },
+    {
+        "id": "8",
+        "title": "Industry Baby",
+        "artist": "Lil Nas X ft. Jack Harlow",
+        "file": "Lil Nas X - Industry Baby (Lyrics) ft. Jack Harlow - (320 Kbps).mp3",
+        "duration": 212
+    },
+    {
+        "id": "9",
+        "title": "Sunroof",
+        "artist": "Nicky Youre, dazy",
+        "file": "Nicky Youre, dazy - Sunroof (Lyrics) - (320 Kbps).mp3",
+        "duration": 169
+    },
+    {
+        "id": "10",
+        "title": "Stay",
+        "artist": "Hsu Rinaa",
+        "file": "stay. - Hsu Rinaa (Official Visualizer ) - (320 Kbps).mp3",
+        "duration": 217
+    }
+]

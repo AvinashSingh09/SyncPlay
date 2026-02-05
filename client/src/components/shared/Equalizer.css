@@ -1,0 +1,46 @@
+/* Equalizer animation for active song */
+
+.equalizer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2px;
+    height: 16px;
+    width: 16px;
+}
+
+.equalizer-bar {
+    width: 3px;
+    background: var(--accent);
+    border-radius: 1px;
+    animation: equalize 0.5s ease-in-out infinite alternate;
+}
+
+.equalizer-bar:nth-child(1) {
+    height: 60%;
+    animation-delay: 0s;
+}
+
+.equalizer-bar:nth-child(2) {
+    height: 100%;
+    animation-delay: 0.15s;
+}
+
+.equalizer-bar:nth-child(3) {
+    height: 40%;
+    animation-delay: 0.3s;
+}
+
+.equalizer.paused .equalizer-bar {
+    animation-play-state: paused;
+}
+
+@keyframes equalize {
+    0% {
+        transform: scaleY(0.3);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}

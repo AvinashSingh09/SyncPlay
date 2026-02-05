@@ -1,0 +1,117 @@
+/* Reorderable Queue styles - Mobile optimized with drag support */
+
+.reorderable-queue {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+    padding-bottom: 120px;
+}
+
+.drag-hint {
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    padding: var(--space-xs) 0;
+    margin: 0;
+}
+
+.queue-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    min-height: 64px;
+    transition: opacity 0.2s, box-shadow 0.2s;
+}
+
+.queue-item.active {
+    background: var(--accent-dim);
+}
+
+.queue-item.dragging {
+    box-shadow: var(--shadow-lg);
+    background: var(--bg-elevated);
+}
+
+/* Drag handle - touch-action none ONLY here */
+.drag-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md);
+    color: var(--text-muted);
+    cursor: grab;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s, color 0.2s;
+}
+
+.drag-handle:hover {
+    background: var(--bg-elevated);
+    color: var(--text-secondary);
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+    background: var(--accent-dim);
+    color: var(--accent);
+}
+
+.item-index {
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.index-number {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    font-variant-numeric: tabular-nums;
+}
+
+.queue-item.active .index-number {
+    color: var(--accent);
+}
+
+.item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.item-title {
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.queue-item.active .item-title {
+    color: var(--accent);
+}
+
+.item-artist {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-modified-indicator {
+    color: var(--accent);
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    padding-right: var(--space-sm);
+}

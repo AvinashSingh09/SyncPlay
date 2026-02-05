@@ -1,0 +1,208 @@
+/* Player Page Layout - Responsive, no scroll */
+
+.player-page {
+    display: grid;
+    grid-template-columns: 320px 1fr 220px;
+    gap: var(--space-lg);
+    height: 100vh;
+    height: 100dvh;
+    padding: var(--space-lg);
+    background: var(--bg-primary);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Sidebar toggle button - only visible on mobile */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: var(--space-md);
+    left: var(--space-md);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    padding: var(--space-sm) var(--space-md);
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    z-index: 100;
+    align-items: center;
+    gap: var(--space-xs);
+    transition: all var(--transition-fast);
+}
+
+.sidebar-toggle:hover {
+    background: var(--bg-highlight);
+}
+
+.sidebar-toggle svg {
+    flex-shrink: 0;
+}
+
+/* Sidebar */
+.player-sidebar {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    display: none;
+}
+
+.sidebar-close {
+    display: none;
+}
+
+/* Main content */
+.player-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    padding: var(--space-lg);
+    overflow: hidden;
+}
+
+/* QR section */
+.player-qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: var(--space-xxl);
+}
+
+/* Mobile QR - hidden on desktop */
+.mobile-qr {
+    display: none;
+}
+
+/* Backdrop for mobile sidebar */
+.sidebar-backdrop {
+    display: none;
+}
+
+/* Desktop only class */
+.desktop-only {
+    display: flex;
+}
+
+/* ========== TABLET (1024px and below) ========== */
+@media (max-width: 1024px) {
+    .player-page {
+        grid-template-columns: 280px 1fr;
+    }
+
+    .player-qr.desktop-only {
+        display: none;
+    }
+
+    .mobile-qr {
+        display: block;
+    }
+}
+
+/* ========== PORTRAIT / MOBILE (768px and below) ========== */
+@media (max-width: 768px) {
+    .player-page {
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-sm);
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    /* Show toggle button */
+    .sidebar-toggle {
+        display: flex;
+        position: absolute;
+        top: var(--space-sm);
+        left: var(--space-sm);
+    }
+
+    /* Sidebar becomes slide-out drawer */
+    .player-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--bg-secondary);
+        z-index: 200;
+        transform: translateX(-100%);
+        transition: transform var(--transition-normal);
+        padding: var(--space-md);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .player-sidebar.open {
+        transform: translateX(0);
+    }
+
+    /* Show sidebar header on mobile */
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: var(--space-md);
+        border-bottom: 1px solid var(--border);
+        margin-bottom: var(--space-md);
+    }
+
+    .sidebar-header h2 {
+        font-size: var(--font-size-lg);
+        color: var(--text-primary);
+        margin: 0;
+    }
+
+    .sidebar-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: var(--radius-sm);
+    }
+
+    .sidebar-close:hover {
+        background: var(--bg-elevated);
+        color: var(--text-primary);
+    }
+
+    /* Show backdrop */
+    .sidebar-backdrop {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 150;
+    }
+
+    /* Main fills remaining space */
+    .player-main {
+        flex: 1;
+        padding: var(--space-sm);
+        justify-content: space-between;
+        gap: var(--space-md);
+        padding-top: 48px;
+        overflow: hidden;
+    }
+
+    /* Mobile QR visible and compact */
+    .mobile-qr {
+        display: block;
+        flex-shrink: 0;
+    }
+}
