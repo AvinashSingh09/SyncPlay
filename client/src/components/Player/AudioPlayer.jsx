@@ -48,7 +48,16 @@ export const AudioPlayer = forwardRef(function AudioPlayer(props, ref) {
     // Handle song change - load new source
     useEffect(() => {
         const audio = audioRef.current;
-        if (!audio || !currentSong) return;
+        if (!audio) return;
+
+        // If no song (queue cleared), stop audio
+        if (!currentSong) {
+            audio.pause();
+            audio.removeAttribute('src');
+            audio.load();
+            shouldPlayRef.current = false;
+            return;
+        }
 
         // Mark that we want to play after loading if isPlaying is true
         shouldPlayRef.current = isPlaying;
