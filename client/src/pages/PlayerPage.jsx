@@ -39,7 +39,7 @@ export function PlayerPage() {
                 <span>Queue</span>
             </button>
 
-            {/* Sidebar - slides in on mobile */}
+            {/* Sidebar - shows queue (songs added by users) */}
             <aside className={`player-sidebar ${sidebarOpen ? 'open' : ''}`}>
                 <div className="sidebar-header">
                     <h2>Queue</h2>

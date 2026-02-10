@@ -24,7 +24,6 @@ export function QRCode() {
             </div>
             <div className="qr-info">
                 <p className="qr-label">Scan to control</p>
-                <p className="qr-url">/controller</p>
             </div>
         </div>
     );

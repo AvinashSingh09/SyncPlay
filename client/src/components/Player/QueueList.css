@@ -16,6 +16,35 @@
     border-bottom: 1px solid var(--border);
 }
 
+.queue-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-md) 0 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.queue-title-row .queue-title {
+    border-bottom: none;
+}
+
+.queue-clear-btn {
+    padding: var(--space-xs) var(--space-md);
+    background: transparent;
+    color: var(--error, #f44);
+    border: 1px solid var(--error, #f44);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.queue-clear-btn:hover {
+    background: var(--error, #f44);
+    color: white;
+}
+
 .queue-items {
     flex: 1;
     overflow-y: auto;
@@ -88,4 +117,29 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.queue-item.played {
+    opacity: 0.4;
+}
+
+.queue-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xxl);
+    color: var(--text-muted);
+    text-align: center;
+    gap: var(--space-xs);
+}
+
+.queue-empty p {
+    margin: 0;
+    font-size: var(--font-size-md);
+}
+
+.queue-empty-hint {
+    font-size: var(--font-size-sm) !important;
+    opacity: 0.6;
 }

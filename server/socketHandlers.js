@@ -14,28 +14,49 @@ export function setupSocketHandlers(io) {
             socket.emit('sync:response', state.getState());
         });
 
-        // Controller submits a new queue order
-        socket.on('queue:submit', (data) => {
-            console.log('Queue submitted:', data.queue?.length, 'songs');
+        // User adds a single song to the queue
+        socket.on('queue:addSong', (data) => {
+            console.log('Song added to queue:', data.song?.title);
 
-            if (data.queue && Array.isArray(data.queue)) {
-                state.setQueue(data.queue);
-                // Always start from the first song when new queue is submitted
-                state.setCurrentIndex(0);
-                // Start playing the new queue
-                const newState = state.setPlaying(true);
-                // Broadcast to all clients including sender
-                io.emit('queue:update', { queue: newState.queue });
-                io.emit('song:change', {
-                    index: 0,
-                    song: state.getCurrentSong()
-                });
-                io.emit('player:state', {
-                    isPlaying: true,
-                    currentTime: 0,
-                    currentIndex: 0
-                });
+            if (data.song) {
+                const result = state.addSongToQueue(data.song);
+
+                if (!result.added) {
+                    socket.emit('queue:error', { message: 'Queue is full' });
+                    return;
+                }
+
+                // Broadcast updated queue to all clients
+                io.emit('queue:update', { queue: state.getQueue() });
+
+                // If this is the first song, start playing it
+                if (result.isFirstSong) {
+                    state.setCurrentIndex(0);
+                    state.setPlaying(true);
+                    io.emit('song:change', {
+                        index: 0,
+                        song: state.getCurrentSong(),
+                        isPlaying: true
+                    });
+                    io.emit('player:state', {
+                        isPlaying: true,
+                        currentTime: 0,
+                        currentIndex: 0
+                    });
+                }
             }
+        });
+
+        // Clear the entire queue
+        socket.on('queue:clear', () => {
+            console.log('Queue cleared');
+            state.clearQueue();
+            io.emit('queue:update', { queue: [] });
+            io.emit('player:state', {
+                isPlaying: false,
+                currentTime: 0,
+                currentIndex: 0
+            });
         });
 
         // Player control events (play, pause, next, prev, seek)
@@ -51,13 +72,19 @@ export function setupSocketHandlers(io) {
                 case 'pause':
                     newState = state.setPlaying(false);
                     break;
-                case 'next':
-                    newState = state.nextSong();
-                    io.emit('song:change', {
-                        index: newState.currentIndex,
-                        song: state.getCurrentSong()
-                    });
+                case 'next': {
+                    const result = state.nextSong();
+                    if (result.hasNext) {
+                        state.setPlaying(true);
+                        io.emit('song:change', {
+                            index: result.state.currentIndex,
+                            song: state.getCurrentSong(),
+                            isPlaying: true
+                        });
+                    }
+                    newState = result.state;
                     break;
+                }
                 case 'prev':
                     newState = state.prevSong();
                     io.emit('song:change', {
@@ -108,19 +135,27 @@ export function setupSocketHandlers(io) {
 
         // Song ended - auto advance to next
         socket.on('player:songEnded', () => {
-            const newState = state.nextSong();
-            // Keep playing when advancing to next song
-            state.setPlaying(true);
-            io.emit('song:change', {
-                index: newState.currentIndex,
-                song: state.getCurrentSong(),
-                isPlaying: true  // Send playing state with song change
-            });
-            io.emit('player:state', {
-                isPlaying: true,
-                currentTime: 0,
-                currentIndex: newState.currentIndex
-            });
+            const result = state.nextSong();
+            if (result.hasNext) {
+                state.setPlaying(true);
+                io.emit('song:change', {
+                    index: result.state.currentIndex,
+                    song: state.getCurrentSong(),
+                    isPlaying: true
+                });
+                io.emit('player:state', {
+                    isPlaying: true,
+                    currentTime: 0,
+                    currentIndex: result.state.currentIndex
+                });
+            } else {
+                // No more songs in queue
+                io.emit('player:state', {
+                    isPlaying: false,
+                    currentTime: 0,
+                    currentIndex: result.state.currentIndex
+                });
+            }
         });
 
         socket.on('disconnect', () => {

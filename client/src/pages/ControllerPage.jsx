@@ -1,53 +1,12 @@
-// Controller Page - Mobile-first queue management
+// Controller Page - Mobile-first song browser
 
-import { useState, useEffect, useCallback } from 'react';
 import { usePlayer } from '../context/PlayerContext';
 import { useToast } from '../components/shared/Toast';
-import { DraggableQueue } from '../components/Controller/DraggableQueue';
-import { SubmitButton } from '../components/Controller/SubmitButton';
+import { SongLibrary } from '../components/Controller/SongLibrary';
 import './ControllerPage.css';
 
 export function ControllerPage() {
-    const { queue, currentSong, isPlaying, isConnected, submitQueue } = usePlayer();
-    const { showToast } = useToast();
-
-    // Local queue for editing before submit
-    const [localQueue, setLocalQueue] = useState([]);
-    const [originalQueue, setOriginalQueue] = useState([]);
-    const [isSubmitting, setIsSubmitting] = useState(false);
-
-    // Sync local queue when server queue changes
-    useEffect(() => {
-        setLocalQueue([...queue]);
-        setOriginalQueue([...queue]);
-    }, [queue]);
-
-    // Check if queue has been modified
-    const hasChanges = useCallback(() => {
-        if (localQueue.length !== originalQueue.length) return true;
-        return localQueue.some((song, index) => song.id !== originalQueue[index]?.id);
-    }, [localQueue, originalQueue]);
-
-    // Handle queue submission
-    const handleSubmit = async () => {
-        if (!hasChanges()) return;
-
-        setIsSubmitting(true);
-        submitQueue(localQueue);
-
-        // Optimistic update
-        setOriginalQueue([...localQueue]);
-        showToast('Queue updated!', 'success');
-
-        setTimeout(() => {
-            setIsSubmitting(false);
-        }, 500);
-    };
-
-    // Reset to original queue
-    const handleReset = () => {
-        setLocalQueue([...originalQueue]);
-    };
+    const { currentSong, isPlaying, isConnected } = usePlayer();
 
     return (
         <div className="controller-page">
@@ -75,29 +34,8 @@ export function ControllerPage() {
             </header>
 
             <main className="controller-main">
-                <div className="queue-header">
-                    <h2>Queue</h2>
-                    {hasChanges() && (
-                        <button className="reset-btn" onClick={handleReset}>
-                            Reset
-                        </button>
-                    )}
-                </div>
-
-                <DraggableQueue
-                    localQueue={localQueue}
-                    setLocalQueue={setLocalQueue}
-                    originalQueue={originalQueue}
-                />
+                <SongLibrary />
             </main>
-
-            <footer className="controller-footer">
-                <SubmitButton
-                    onClick={handleSubmit}
-                    disabled={isSubmitting}
-                    hasChanges={hasChanges()}
-                />
-            </footer>
         </div>
     );
 }

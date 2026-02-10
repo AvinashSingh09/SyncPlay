@@ -8,12 +8,24 @@ const PlayerContext = createContext(null);
 export function PlayerProvider({ children }) {
     const socketRef = useRef(null);
     const [isConnected, setIsConnected] = useState(false);
-    const [queue, setQueue] = useState([]);
+    const [allSongs, setAllSongs] = useState([]);   // Full song library
+    const [queue, setQueue] = useState([]);           // Current play queue
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
-    const [volume, setVolumeState] = useState(1);  // 0 to 1
+    const [volume, setVolumeState] = useState(1);
+
+    // Fetch all available songs on mount
+    useEffect(() => {
+        fetch('/api/songs')
+            .then(res => res.json())
+            .then(songs => {
+                console.log('Loaded song library:', songs.length, 'songs');
+                setAllSongs(songs);
+            })
+            .catch(err => console.error('Failed to load songs:', err));
+    }, []);
 
     // Initialize socket connection
     useEffect(() => {
@@ -29,7 +41,6 @@ export function PlayerProvider({ children }) {
         socket.on('connect', () => {
             console.log('Socket connected:', socket.id);
             setIsConnected(true);
-            // Request current state on connect
             socket.emit('sync:request');
         });
 
@@ -59,7 +70,6 @@ export function PlayerProvider({ children }) {
             console.log('Song changed:', data.index, data.song?.title);
             setCurrentIndex(data.index);
             setCurrentTime(0);
-            // If server indicates playing state, update it immediately
             if (data.isPlaying !== undefined) {
                 setIsPlaying(data.isPlaying);
             }
@@ -102,8 +112,14 @@ export function PlayerProvider({ children }) {
         socketRef.current?.emit('player:control', { action: 'selectSong', value: index });
     }, []);
 
-    const submitQueue = useCallback((newQueue) => {
-        socketRef.current?.emit('queue:submit', { queue: newQueue });
+    // Add a single song to the queue
+    const addSongToQueue = useCallback((song) => {
+        socketRef.current?.emit('queue:addSong', { song });
+    }, []);
+
+    // Clear the entire queue
+    const clearQueue = useCallback(() => {
+        socketRef.current?.emit('queue:clear');
     }, []);
 
     const reportTimeUpdate = useCallback((time, dur) => {
@@ -124,6 +140,7 @@ export function PlayerProvider({ children }) {
     const value = {
         // State
         isConnected,
+        allSongs,
         queue,
         currentIndex,
         currentSong,
@@ -138,7 +155,8 @@ export function PlayerProvider({ children }) {
         prev,
         seek,
         selectSong,
-        submitQueue,
+        addSongToQueue,
+        clearQueue,
         reportTimeUpdate,
         reportSongEnded,
         setVolume,

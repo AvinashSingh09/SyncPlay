@@ -1,0 +1,126 @@
+/* Song Library Styles */
+
+.song-library {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.library-title {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-md) 0;
+    padding: 0 var(--space-sm);
+}
+
+.library-empty {
+    color: var(--text-muted);
+    text-align: center;
+    padding: var(--space-xl);
+    font-size: var(--font-size-sm);
+}
+
+.library-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.library-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background 0.15s ease;
+    border: 2px solid transparent;
+}
+
+.library-item:hover {
+    background: var(--bg-elevated);
+}
+
+.library-item.selected {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+}
+
+.library-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+}
+
+.library-item-title {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.library-item.selected .library-item-title {
+    color: var(--accent);
+}
+
+.library-item-artist {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.library-check {
+    flex-shrink: 0;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+}
+
+/* Submit button */
+.library-footer {
+    flex-shrink: 0;
+    padding: var(--space-md);
+    border-top: 1px solid var(--border);
+}
+
+.library-submit-btn {
+    width: 100%;
+    padding: var(--space-md);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.library-submit-btn.active {
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+
+.library-submit-btn.active:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+}
+
+.library-submit-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
