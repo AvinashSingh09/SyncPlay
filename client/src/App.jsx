@@ -5,6 +5,7 @@ import { PlayerProvider } from './context/PlayerContext';
 import { ToastProvider } from './components/shared/Toast';
 import { PlayerPage } from './pages/PlayerPage';
 import { ControllerPage } from './pages/ControllerPage';
+import { AdminPage } from './pages/AdminPage';
 import './styles/index.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<PlayerPage />} />
             <Route path="/controller" element={<ControllerPage />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </ToastProvider>
       </PlayerProvider>

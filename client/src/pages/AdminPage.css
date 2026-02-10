@@ -1,0 +1,194 @@
+/* Admin Page Styles */
+
+.admin-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+
+.admin-header {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+}
+
+.admin-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+}
+
+.admin-connection {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
+
+.admin-main {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Now Playing */
+.admin-now-playing {
+    text-align: center;
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+}
+
+.admin-song-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.admin-song-title.empty {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.admin-song-artist {
+    font-size: var(--font-size-md);
+    color: var(--text-secondary);
+    margin: var(--space-xs) 0 0;
+}
+
+/* Seek */
+.admin-seek {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.admin-time {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    min-width: 36px;
+    text-align: center;
+}
+
+.admin-seek-bar {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--bg-elevated);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+.admin-seek-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+}
+
+/* Controls */
+.admin-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.admin-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.admin-btn:hover {
+    background: var(--bg-highlight);
+    transform: scale(1.08);
+}
+
+.admin-btn:active {
+    transform: scale(0.95);
+}
+
+.admin-btn.primary {
+    width: 72px;
+    height: 72px;
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+
+.admin-btn.primary:hover {
+    filter: brightness(1.15);
+}
+
+.btn-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+    line-height: 1;
+}
+
+.admin-btn.primary .btn-label {
+    color: var(--bg-primary);
+}
+
+/* Actions */
+.admin-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.admin-clear-btn {
+    padding: var(--space-sm) var(--space-xl);
+    background: transparent;
+    color: var(--error, #f44);
+    border: 1.5px solid var(--error, #f44);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.admin-clear-btn:hover {
+    background: var(--error, #f44);
+    color: white;
+}
+
+/* Queue */
+.admin-queue {
+    flex: 1;
+    min-height: 200px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
