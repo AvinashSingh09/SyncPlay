@@ -109,12 +109,15 @@ export function setupSocketHandlers(io) {
         // Song ended - auto advance to next
         socket.on('player:songEnded', () => {
             const newState = state.nextSong();
+            // Keep playing when advancing to next song
+            state.setPlaying(true);
             io.emit('song:change', {
                 index: newState.currentIndex,
-                song: state.getCurrentSong()
+                song: state.getCurrentSong(),
+                isPlaying: true  // Send playing state with song change
             });
             io.emit('player:state', {
-                isPlaying: newState.isPlaying,
+                isPlaying: true,
                 currentTime: 0,
                 currentIndex: newState.currentIndex
             });

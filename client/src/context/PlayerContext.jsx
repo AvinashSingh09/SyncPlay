@@ -59,6 +59,10 @@ export function PlayerProvider({ children }) {
             console.log('Song changed:', data.index, data.song?.title);
             setCurrentIndex(data.index);
             setCurrentTime(0);
+            // If server indicates playing state, update it immediately
+            if (data.isPlaying !== undefined) {
+                setIsPlaying(data.isPlaying);
+            }
         });
 
         // Handle player state updates

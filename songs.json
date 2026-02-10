@@ -1,72 +1,226 @@
 [
     {
         "id": "1",
-        "title": "Blinding Lights",
-        "artist": "The Weeknd",
-        "file": "The Weeknd - Blinding Lights (Official Audio) - (320 Kbps).mp3",
-        "duration": 200
+        "title": "Abhi Toh Party Shuru Hui Hai",
+        "artist": "Badshah, Sonam Kapoor",
+        "file": "'Abhi Toh Party Shuru Hui Hai' Full Video Song ｜ Khoobsurat ｜ Badshah ｜ Sonam Kapoor ｜ Aastha [8LZgzAZ2lpQ].mp3",
+        "duration": 210
     },
     {
         "id": "2",
-        "title": "Starboy",
-        "artist": "The Weeknd ft. Daft Punk",
-        "file": "The Weeknd - Starboy (Lyrics) ft. Daft Punk - (320 Kbps).mp3",
-        "duration": 230
+        "title": "Appadi Podu",
+        "artist": "Vidyasagar (Ghilli)",
+        "file": "Appadi Podu - Video Song ｜ Ghilli ｜ Thalapathy Vijay ｜ Trisha ｜ Vidyasagar ｜ Sun Music [i1BqRYMFS08].mp3",
+        "duration": 280
     },
     {
         "id": "3",
-        "title": "Levitating",
-        "artist": "Dua Lipa",
-        "file": "Dua Lipa - Levitating (Lyrics) - (320 Kbps).mp3",
-        "duration": 203
+        "title": "Blockbuster",
+        "artist": "Allu Arjun (Sarrainodu)",
+        "file": "BLOCKBUSTER Full Video Song ｜｜ ＂Sarrainodu＂ ｜｜ Allu Arjun, Rakul Preet ｜｜ Telugu Songs 2016 [FmjJ-e5uGuY].mp3",
+        "duration": 560
     },
     {
         "id": "4",
-        "title": "Shape of You",
-        "artist": "Ed Sheeran",
-        "file": "Ed Sheeran - Shape of You (Lyrics) - (320 Kbps).mp3",
-        "duration": 234
+        "title": "Chikiri Chikiri",
+        "artist": "AR Rahman, Mohit Chauhan (Peddi)",
+        "file": "Chikiri Chikiri Video Song ｜ Peddi ｜ Ram Charan ｜ Janhvi ｜ Buchi Babu Sana ｜ AR Rahman｜Mohit Chauhan [vVDp1ulBKIk].mp3",
+        "duration": 465
     },
     {
         "id": "5",
-        "title": "Bad Habits",
-        "artist": "Ed Sheeran",
-        "file": "Ed Sheeran - Bad Habits - (320 Kbps).mp3",
-        "duration": 231
+        "title": "Danks Anthem",
+        "artist": "Anurag Kulkarni (Su From So)",
+        "file": "DANKS ANTHEM - Video Song ｜ Su From So ｜ Anurag Kulkarni ｜ Sumedh K ｜ Raj B Shetty ｜ J P Thuminad [RldAVzPGMuA].mp3",
+        "duration": 330
     },
     {
         "id": "6",
-        "title": "Heat Waves",
-        "artist": "Glass Animals",
-        "file": "Glass Animals - Heat Waves - (320 Kbps).mp3",
-        "duration": 239
+        "title": "Fa9la Rehman Dakait Entry",
+        "artist": "Dhurandhar",
+        "file": "Fa9la Rehman Dakait Entry Full Song ｜ Dhurandhar ｜ Akshay Khanna ｜ Ranveer Singh ｜ [RCXbPzbex0A].mp3",
+        "duration": 346
     },
     {
         "id": "7",
-        "title": "Someone You Loved",
-        "artist": "Lewis Capaldi",
-        "file": "Lewis Capaldi - Someone You Loved (Lyrics) - (320 Kbps).mp3",
-        "duration": 182
+        "title": "Daavudi",
+        "artist": "Anirudh Ravichander (Devara)",
+        "file": "Full Video： Daavudi தாவூதி - Devara ｜ NTR ｜ Janhvi Kapoor ｜ Koratala Siva ｜ Anirudh Ravichander [hmSQSgXO-qc].mp3",
+        "duration": 310
     },
     {
         "id": "8",
-        "title": "Industry Baby",
-        "artist": "Lil Nas X ft. Jack Harlow",
-        "file": "Lil Nas X - Industry Baby (Lyrics) ft. Jack Harlow - (320 Kbps).mp3",
-        "duration": 212
+        "title": "Hook Step",
+        "artist": "Bheems, Baba Sehgal (Mana Shankaravara Prasad Garu)",
+        "file": "Full Video： Hook Step ｜ Mana ShankaraVaraPrasad Garu ｜ Chiranjeevi ｜ Bheems ｜ Baba Sehgal ｜ Anil R [bm6DURLfal4].mp3",
+        "duration": 278
     },
     {
         "id": "9",
-        "title": "Sunroof",
-        "artist": "Nicky Youre, dazy",
-        "file": "Nicky Youre, dazy - Sunroof (Lyrics) - (320 Kbps).mp3",
-        "duration": 169
+        "title": "Mauja Hi Mauja",
+        "artist": "Mika Singh (Jab We Met)",
+        "file": "Full Video： Mauja Hi Mauja ｜ Jab We Met ｜ Shahid kapoor, Kareena Kapoor ｜ Mika Singh ｜  Pritam [PaDaoNnOQaM].mp3",
+        "duration": 341
     },
     {
         "id": "10",
-        "title": "Stay",
-        "artist": "Hsu Rinaa",
-        "file": "stay. - Hsu Rinaa (Official Visualizer ) - (320 Kbps).mp3",
-        "duration": 217
+        "title": "Naatu Naatu",
+        "artist": "MM Keeravaani (RRR)",
+        "file": "Full Video： Naatu Naatu Song (Telugu) ｜ RRR Songs ｜ NTR,Ram Charan ｜ MM Keeravaani ｜ SS Rajamouli [4_eEgJhsBMo].mp3",
+        "duration": 466
+    },
+    {
+        "id": "11",
+        "title": "Morni Banke",
+        "artist": "Guru Randhawa, Neha Kakkar",
+        "file": "Guru Randhawa： Morni Banke Video ｜ Badhaai Ho ｜ Tanishk Bagchi ｜ Neha Kakkar ｜ Ayushmann K, Sanya M [1EadhOBcfI0].mp3",
+        "duration": 272
+    },
+    {
+        "id": "12",
+        "title": "Illuminati",
+        "artist": "Sushin Shyam, Dabzee",
+        "file": "Illuminati (Music Video) ｜ Sushin Shyam ｜ Dabzee ｜ Vinayak Sasikumar ｜ Think Originals [yH7eDWTH5iM].mp3",
+        "duration": 342
+    },
+    {
+        "id": "13",
+        "title": "Kurchi Madathapetti",
+        "artist": "Thaman S (Guntur Kaaram)",
+        "file": "Kurchi Madathapetti Full Video Song ｜ Guntur Kaaram ｜ Mahesh Babu ｜ Sreeleela ｜ Trivikram ｜ Thaman S [gh3FyLT7WVg].mp3",
+        "duration": 435
+    },
+    {
+        "id": "14",
+        "title": "Laal Peeli Akhiyaan",
+        "artist": "Tanishq, Romy",
+        "file": "Laal Peeli Akhiyaan (Full Video) Shahid Kapoor,Kriti,Tanishq,Romy ｜ Teri Baaton Mein Aisa Uljha Jiya [ow77NqggH-0].mp3",
+        "duration": 314
+    },
+    {
+        "id": "15",
+        "title": "Let's Nacho",
+        "artist": "Badshah, Benny Dayal, Nucleya",
+        "file": "Let's Nacho - Kapoor & Sons ｜ Sidharth ｜ Alia ｜ Fawad ｜ Badshah ｜ Benny Dayal ｜ Nucleya [TLnwqAarPkM].mp3",
+        "duration": 270
+    },
+    {
+        "id": "16",
+        "title": "Lungi Dance",
+        "artist": "Yo Yo Honey Singh (Chennai Express)",
+        "file": "Lungi Dance - Full Video Song ｜ Chennai Express ｜ Yo Yo Honey Singh, Shahrukh Khan, Deepika [HVFb5-MrP4A].mp3",
+        "duration": 405
+    },
+    {
+        "id": "17",
+        "title": "Rowdy Baby",
+        "artist": "Yuvan Shankar Raja (Maari 2)",
+        "file": "Maari 2 - Rowdy Baby (Video Song) ｜ Dhanush, Sai Pallavi ｜ Yuvan Shankar Raja ｜ Balaji Mohan [x6Q7c9RyMzk].mp3",
+        "duration": 494
+    },
+    {
+        "id": "18",
+        "title": "Manasilaayo",
+        "artist": "Anirudh Ravichander (Vettaiyan)",
+        "file": "Manasilaayo Video ｜ Vettaiyan ｜ Rajinikanth ｜ Anirudh Ravichander ｜ Manju Warrier ｜ T.J. Gnanavel [5WsUIeNAtbM].mp3",
+        "duration": 387
+    },
+    {
+        "id": "19",
+        "title": "Monica",
+        "artist": "Anirudh (COOLIE)",
+        "file": "Monica -Telugu Video Song｜ COOLIE｜ Superstar Rajinikanth｜ Sun Pictures｜ Lokesh｜ Anirudh｜ Pooja Hegde [K3nRKezdDIM].mp3",
+        "duration": 304
+    },
+    {
+        "id": "20",
+        "title": "Na Na Na Na Na Re",
+        "artist": "Daler Mehndi",
+        "file": "Na Na Na Na Na Re (Full Video) Rajkummar, Triptii ｜ Daler M, Gurdeep ｜ Vicky Vidya Ka Woh Wala Video [9m21BVhQbxI].mp3",
+        "duration": 409
+    },
+    {
+        "id": "21",
+        "title": "OH Ho Ho Ho",
+        "artist": "Sukhbir",
+        "file": "OH Ho Ho Ho ｜ ORIGINAL SONG ｜ Ishq Tera Tadpave ｜ Sukhbir ｜ Original Video [-99Z8E1pOrs].mp3",
+        "duration": 229
+    },
+    {
+        "id": "22",
+        "title": "One Two Three Four",
+        "artist": "Chennai Express",
+        "file": "One Two Three Four Chennai Express Full Video Song ｜ Shahrukh Khan, Deepika Padukone [W9mrvDWUR9g].mp3",
+        "duration": 374
+    },
+    {
+        "id": "23",
+        "title": "Karabuu",
+        "artist": "Chandan Shetty (Pogaru)",
+        "file": "Pogaru ｜ Karabuu ｜ Video Song ｜ Dhruva Sarja ｜ Rashmika ｜Nanda Kishore ｜Chandan Shetty｜ @AnandAudio [Ysf4QRrcLGM].mp3",
+        "duration": 438
+    },
+    {
+        "id": "24",
+        "title": "Pulsar Bike",
+        "artist": "Bheems Ceciroleo (Dhamaka)",
+        "file": "Pulsar Bike Full Video Song ｜ Dhamaka ｜ Ravi Teja ｜ Sreeleela ｜ Thrinadha Rao ｜ Bheems Ceciroleo [c9fXiv1UELo].mp3",
+        "duration": 221
+    },
+    {
+        "id": "25",
+        "title": "Ra Ra Reddy I'm Ready",
+        "artist": "Macherla Niyojakavargam",
+        "file": "Ra Ra Reddy I'm Ready Video Song (Telugu) ｜ Macherla Niyojakavargam ｜Nithiin, Anjali ｜ Telugu songs [by4USgMmICE].mp3",
+        "duration": 250
+    },
+    {
+        "id": "26",
+        "title": "Sauda Khara Khara",
+        "artist": "Sukhbir, Dhvani (Good Newwz)",
+        "file": "Sauda Khara Khara ｜Good Newwz｜ Akshay Kumar , Kareena , Diljit , Kiara｜ Sukhbir,Dhvani,Lijo,DjChetas [LYEqeUr-158].mp3",
+        "duration": 369
+    },
+    {
+        "id": "27",
+        "title": "Shaam Shaandaar",
+        "artist": "Amit Trivedi (Shaandaar)",
+        "file": "Shaam Shaandaar ｜ Shaandaar ｜ Shahid Kapoor & Alia Bhatt ｜ Amit Trivedi [D21Di3NXcYM].mp3",
+        "duration": 370
+    },
+    {
+        "id": "28",
+        "title": "Shararat",
+        "artist": "Dhurandhar",
+        "file": "Shararat - Lyrical ｜ Dhurandhar ｜ Ranveer Singh, Shashwat S, Jasmine, Madhubanti, Ayesha, Krystle [467x0puJtBg].mp3",
+        "duration": 372
+    },
+    {
+        "id": "29",
+        "title": "Tauba Tauba",
+        "artist": "Karan Aujla (Bad Newz)",
+        "file": "Tauba Tauba ｜ Bad Newz ｜ Vicky Kaushal ｜ Triptii Dimri ｜ Karan Aujla [LK7-_dgAVQE].mp3",
+        "duration": 382
+    },
+    {
+        "id": "30",
+        "title": "Vibe Undi",
+        "artist": "Armaan Malik (Mirai)",
+        "file": "Vibe Undi - Lyrical ｜ Mirai ｜ Teja Sajja, Ritika Nayak ｜ Karthik Gattamneni ｜Gowra Hari｜Armaan Malik [sUuLY8-LjKM].mp3",
+        "duration": 363
+    },
+    {
+        "id": "31",
+        "title": "Viral Vayyari",
+        "artist": "Devi Sri Prasad (Junior)",
+        "file": "Viral Vayyari Full Video Song ｜ Junior Movie ｜ Kireeti, Sreeleela ｜ Radha Krishna ｜ Devi Sri Prasad [c2nHxn2P5EU].mp3",
+        "duration": 457
+    },
+    {
+        "id": "32",
+        "title": "Zingaat",
+        "artist": "Ajay-Atul (Sairat)",
+        "file": "Zingaat - Official Full Video ｜ Sairat ｜ Akash Thosar & Rinku Rajguru ｜ Ajay Atul ｜ Nagraj Manjule [2gcsgfzqN8k].mp3",
+        "duration": 365
     }
 ]

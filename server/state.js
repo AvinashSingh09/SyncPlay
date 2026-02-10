@@ -3,7 +3,7 @@
 
 import songs from '../songs.json' with { type: 'json' };
 
-const MAX_QUEUE_SIZE = 20;
+const MAX_QUEUE_SIZE = 50;
 
 // Initialize state with all songs in queue
 const state = {

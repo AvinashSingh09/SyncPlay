@@ -1,10 +1,11 @@
 // Audio player component - handles actual audio playback
 
-import { useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
+import { useRef, useEffect, forwardRef, useImperativeHandle, useCallback } from 'react';
 import { usePlayer } from '../../context/PlayerContext';
 
 export const AudioPlayer = forwardRef(function AudioPlayer(props, ref) {
     const audioRef = useRef(null);
+    const shouldPlayRef = useRef(false);
     const {
         currentSong,
         isPlaying,
@@ -22,35 +23,38 @@ export const AudioPlayer = forwardRef(function AudioPlayer(props, ref) {
         getAudioElement: () => audioRef.current
     }));
 
-    // Handle play/pause
+    // Handle play/pause (only when isPlaying toggles, not on song change)
     useEffect(() => {
         const audio = audioRef.current;
         if (!audio || !currentSong) return;
 
         if (isPlaying) {
-            audio.play().catch((err) => {
-                console.log('Autoplay blocked:', err);
-                setIsPlaying(false);
-            });
+            // Only play if the audio has a valid source and isn't loading a new one
+            if (audio.readyState >= 2) {
+                audio.play().catch((err) => {
+                    console.log('Autoplay blocked:', err);
+                    setIsPlaying(false);
+                });
+            } else {
+                // Audio not ready yet, mark that we should play when loaded
+                shouldPlayRef.current = true;
+            }
         } else {
+            shouldPlayRef.current = false;
             audio.pause();
         }
-    }, [isPlaying, currentSong, setIsPlaying]);
+    }, [isPlaying, setIsPlaying]);
 
-    // Handle song change
+    // Handle song change - load new source
     useEffect(() => {
         const audio = audioRef.current;
         if (!audio || !currentSong) return;
+
+        // Mark that we want to play after loading if isPlaying is true
+        shouldPlayRef.current = isPlaying;
 
         audio.src = `/audio/${currentSong.file}`;
         audio.load();
-
-        if (isPlaying) {
-            audio.play().catch((err) => {
-                console.log('Autoplay blocked:', err);
-                setIsPlaying(false);
-            });
-        }
     }, [currentSong?.id]);
 
     // Handle seek from other clients
@@ -88,6 +92,20 @@ export const AudioPlayer = forwardRef(function AudioPlayer(props, ref) {
         setDuration(audio.duration);
     };
 
+    // When audio is ready to play after loading a new source
+    const handleCanPlay = useCallback(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        if (shouldPlayRef.current) {
+            audio.play().catch((err) => {
+                console.log('Autoplay blocked:', err);
+                setIsPlaying(false);
+            });
+            shouldPlayRef.current = false;
+        }
+    }, [setIsPlaying]);
+
     const handleEnded = () => {
         reportSongEnded();
     };
@@ -97,6 +115,7 @@ export const AudioPlayer = forwardRef(function AudioPlayer(props, ref) {
             ref={audioRef}
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
+            onCanPlay={handleCanPlay}
             onEnded={handleEnded}
             preload="auto"
             crossOrigin="anonymous"
